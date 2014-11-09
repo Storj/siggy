@@ -1,1 +1,1 @@
-from .siggy import *
+from .siggy import *  # NOQA

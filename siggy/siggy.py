@@ -24,19 +24,25 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from pycoin.ecdsa import *
-from pycoin.encoding import *
+from pycoin.ecdsa import *  # NOQA
+from pycoin.encoding import *  # NOQA
 import base64
+
 
 def int_to_var_bytes(x):
     """Converts an integer to a bitcoin variable length integer as a bytearray
 
     :param x: the integer to convert
     """
-    if x < 253: return intbytes.to_bytes(x,1)
-    elif x < 65536: return bytearray([253]) + intbytes.to_bytes(x,2)[::-1]
-    elif x < 4294967296: return bytearray([254]) + intbytes.to_bytes(x,4)[::-1]
-    else: return bytearray([255]) + intbytes.to_bytes(x,8)[::-1]
+    if x < 253:
+        return intbytes.to_bytes(x, 1)
+    elif x < 65536:
+        return bytearray([253]) + intbytes.to_bytes(x, 2)[::-1]
+    elif x < 4294967296:
+        return bytearray([254]) + intbytes.to_bytes(x, 4)[::-1]
+    else:
+        return bytearray([255]) + intbytes.to_bytes(x, 8)[::-1]
+
 
 def bitcoin_sig_hash(message):
     """Bitcoin has a special format for hashing messages for signing.
@@ -47,6 +53,7 @@ def bitcoin_sig_hash(message):
         int_to_var_bytes(len(message)) +\
         message
     return double_sha256(padded)
+
 
 def verify_signature(message, signature, address):
     """This function verifies a bitcoin signed message.
@@ -65,8 +72,8 @@ def verify_signature(message, signature, address):
 
     pubpairs = possible_public_pairs_for_signature(
         generator_secp256k1,
-        val, 
-        (r,s))
+        val,
+        (r, s))
 
     addr_hash160 = bitcoin_address_to_hash160_sec(address)
 
