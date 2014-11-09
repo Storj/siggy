@@ -78,7 +78,9 @@ def verify_signature(message, signature, address):
     addr_hash160 = bitcoin_address_to_hash160_sec(address)
 
     for pair in pubpairs:
-        if (public_pair_to_hash160_sec(pair) == addr_hash160):
+        if (public_pair_to_hash160_sec(pair, True) == addr_hash160):
+            return True
+        if (public_pair_to_hash160_sec(pair, False) == addr_hash160):
             return True
 
     return False
