@@ -62,7 +62,13 @@ def verify_signature(message, signature, address):
     :param signature: the signature in base64 format
     :param address: the signing address
     """
-    binsig = base64.b64decode(signature)
+    try:
+        binsig = base64.b64decode(signature)
+    except:
+        return False
+
+    if (len(binsig) < 65):
+        return False
 
     r = intbytes.from_bytes(binsig[1:33])
 
