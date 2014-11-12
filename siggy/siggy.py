@@ -28,6 +28,7 @@ from pycoin.ecdsa import *  # NOQA
 from pycoin.encoding import *  # NOQA
 import base64
 
+SIGNATURE_LENGTH = 65
 
 def int_to_var_bytes(x):
     """Converts an integer to a bitcoin variable length integer as a bytearray
@@ -54,9 +55,6 @@ def bitcoin_sig_hash(message):
         message
     return double_sha256(padded)
 
-def signature_length():
-    """Returns the signature length"""
-    return 65
 
 def verify_signature(message, signature, address):
     """This function verifies a bitcoin signed message.
@@ -70,7 +68,7 @@ def verify_signature(message, signature, address):
     except:
         return False
 
-    if (len(binsig) != signature_length()):
+    if (len(binsig) != SIGNATURE_LENGTH):
         return False
 
     r = intbytes.from_bytes(binsig[1:33])
