@@ -10,5 +10,5 @@
   after_success:
     - coveralls
   script:
-    - flake8 downstream_node/
+    - flake8 siggy/
     - nosetests -v --with-coverage --cover-package=siggy tests/
