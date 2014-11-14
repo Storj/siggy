@@ -9,6 +9,7 @@
     - "pip install -r requirements.txt ."
   after_success:
     - coveralls
+# run run tests
   script:
     - flake8 downstream_node/
     - nosetests -v --with-coverage --cover-package=downstream_node tests/
