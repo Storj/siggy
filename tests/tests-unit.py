@@ -32,6 +32,7 @@ class Test(unittest.TestCase):
         self.assertEqual(siggy.verify_signature(*TestVectors.sig_invalid_vector1[0]),TestVectors.sig_invalid_vector1[1])
         self.assertEqual(siggy.verify_signature(*TestVectors.sig_invalid_vector2[0]),TestVectors.sig_invalid_vector2[1])
         self.assertEqual(siggy.verify_signature(*TestVectors.sig_invalid_vector3[0]),TestVectors.sig_invalid_vector3[1])
+        self.assertEqual(siggy.verify_signature(*TestVectors.sig_invalid_vector4[0]),TestVectors.sig_invalid_vector4[1])
 
 class TestVectors(object):    
     bytes_8_vector = (77, bytearray([77]))
@@ -44,3 +45,4 @@ class TestVectors(object):
     sig_invalid_vector1 = (('test message','HyzVUenXXo4pa+kgm1vS8PNJM83eIXF','19qVgG8C6eXwKMMyvVegsi3xCsKyk3Z3jV'),False)
     sig_invalid_vector2 = (('test message','HyzVUenXXo4pa+kgm1vS8PNJM83eIXF+','19qVgG8C6eXwKMMyvVegsi3xCsKyk3Z3jV'),False)
     sig_invalid_vector3 = (('test message1','HyzVUenXXo4pa+kgm1vS8PNJM83eIXFC5r0q86FGbqFcdla6rcw72/ciXiEPfjli3ENfwWuESHhv6K9esI0dl5I=','19qVgG8C6eXwKMMyvVegsi3xCsKyk3Z3jV'),False)
+    sig_invalid_vector4 = (('test message1','HyzVUenXXo4pa+kgm1vS8PNJM83eIXFC5r0q86FGbqFcdla6rcw72/ciXiEPfjli3###wWuESHhv6K9esI0dl5I=','19qVgG8C6eXwKMMyvVegsi3xCsKyk3Z3jV'),False)
