@@ -1,6 +1,8 @@
 siggy
 =====
 
+[![Build Status](https://travis-ci.org/wiggzz/siggy.svg?branch=master)](https://travis-ci.org/wiggzz/siggy)
+
 Small module for verifying bitcoin signatures
 
 ```python
