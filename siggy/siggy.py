@@ -67,7 +67,6 @@ def verify_signature(message, signature, address):
     :param address: the signing address
     """
     if (len(signature) != SIGNATURE_LENGTH):
-        print('signature length ({0}) not equal to required length ({1})'.format(len(signature),SIGNATURE_LENGTH))
         return False
 
     try:
