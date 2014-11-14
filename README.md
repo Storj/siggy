@@ -1,7 +1,7 @@
 siggy
 =====
 
-[![Build Status](https://travis-ci.org/wiggzz/siggy.svg?branch=master)](https://travis-ci.org/wiggzz/siggy)
+[![Build Status](https://travis-ci.org/wiggzz/siggy.svg?branch=master)](https://travis-ci.org/wiggzz/siggy) [![Coverage Status](https://img.shields.io/coveralls/wiggzz/siggy.svg)](https://coveralls.io/r/wiggzz/siggy)
 
 Small module for verifying bitcoin signatures
 
