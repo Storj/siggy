@@ -30,7 +30,8 @@ import math
 import base64
 
 BIN_SIGNATURE_LENGTH = 65
-SIGNATURE_LENGTH = 4*math.ceil(BIN_SIGNATURE_LENGTH/3)
+SIGNATURE_LENGTH = 4 * math.ceil(BIN_SIGNATURE_LENGTH / 3)
+
 
 def int_to_var_bytes(x):
     """Converts an integer to a bitcoin variable length integer as a bytearray
